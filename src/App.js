@@ -1,28 +1,33 @@
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'react-bootstrap';
+import NaviBar from './Components/Navibar';
+import Footer  from './Components/Footer';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
+import {Home} from './Home';
+import {Users} from './Users';
+import {About} from './About';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+   <>
+   <Router>   
+   <NaviBar/>
+   <Routes>
+      <Route  path="/" element={<Home />} />
+      <Route path="/users" element={<Users />} />
+      <Route path="/about" element={<About />} />
+   </Routes>
+   </Router>
+   <Footer />
+   </>   
   );
 }
 
